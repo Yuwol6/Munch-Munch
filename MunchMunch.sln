@@ -14,6 +14,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{02
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HistoryApi", "HistoryApi\HistoryApi.csproj", "{80383708-9F31-4687-8018-4E07950421AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotingApi", "VotingApi\VotingApi.csproj", "{5AA796B5-E6D1-4FD5-9C49-9DD2F384CE8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +35,10 @@ Global
 		{80383708-9F31-4687-8018-4E07950421AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80383708-9F31-4687-8018-4E07950421AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80383708-9F31-4687-8018-4E07950421AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AA796B5-E6D1-4FD5-9C49-9DD2F384CE8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AA796B5-E6D1-4FD5-9C49-9DD2F384CE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AA796B5-E6D1-4FD5-9C49-9DD2F384CE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AA796B5-E6D1-4FD5-9C49-9DD2F384CE8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

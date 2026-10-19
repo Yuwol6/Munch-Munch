@@ -5,8 +5,18 @@ const cuisineSelect = document.getElementById("cuisineSelect");
 const historyButton = document.getElementById("historyButton");
 const historyList = document.getElementById("historyList");
 
+const voteButton = document.getElementById("voteButton");
+const voteMessage = document.getElementById("voteMessage");
+const leaderboardButton = document.getElementById("leaderboardButton");
+const leaderboardList = document.getElementById("leaderboardList");
+
+// Replace with your VotingApi's actual HTTPS port
+const VOTING_API = "http://localhost:8082";
+
+let currentFood = null;
+
 // Replace this with HistoryApi's actual HTTPS port
-const HISTORY_API = "https://localhost:7004";
+const HISTORY_API = "http://localhost:8081";
 
 // Give each browser a persistent anonymous ID
 let userId = localStorage.getItem("munchmunchUserId");
@@ -18,6 +28,8 @@ if (!userId) {
 
 button.addEventListener("click", async () => {
     result.textContent = "Finding something delicious...";
+    currentFood = null;
+    voteButton.hidden = true;
 
     try {
         const cuisine = cuisineSelect.value;
@@ -33,6 +45,9 @@ button.addEventListener("click", async () => {
 
         const data = await response.json();
         result.textContent = `How about ${data.food}?`;
+        currentFood = data.food;
+        voteButton.hidden = false;
+        voteMessage.textContent = "";
 
         // Save the recommendation to HistoryApi
         const saveResponse = await fetch(`${HISTORY_API}/api/history`, {
@@ -94,3 +109,81 @@ historyButton.addEventListener("click", async () => {
         historyList.appendChild(item);
     }
 });
+
+voteButton.addEventListener("click", async () => {
+    if (!currentFood) return;
+
+    voteButton.disabled = true;
+
+    try {
+        const response = await fetch(`${VOTING_API}/api/votes`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                userId: userId,
+                food: currentFood
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            voteMessage.textContent =
+                data.error || "Couldn't record your vote.";
+            return;
+        }
+
+        voteMessage.textContent =
+            `Vote recorded! ${data.remainingVotes} votes remaining today.`;
+
+        voteButton.hidden = true;
+        await loadLeaderboard();
+
+    } catch (error) {
+        console.error(error);
+        voteMessage.textContent = "Couldn't connect to VotingApi.";
+    } finally {
+        voteButton.disabled = false;
+    }
+});
+
+async function loadLeaderboard() {
+    try {
+        const response = await fetch(`${VOTING_API}/api/leaderboard`);
+
+        if (!response.ok) {
+            throw new Error("Leaderboard request failed");
+        }
+
+        const leaderboard = await response.json();
+        leaderboardList.replaceChildren();
+
+        if (leaderboard.length === 0) {
+            const item = document.createElement("li");
+            item.textContent = "No votes today.";
+            leaderboardList.appendChild(item);
+            return;
+        }
+
+        for (const entry of leaderboard) {
+            const item = document.createElement("li");
+            item.textContent = `${entry.food} — ${entry.votes} votes`;
+            leaderboardList.appendChild(item);
+        }
+
+    } catch (error) {
+        console.error(error);
+        leaderboardList.replaceChildren();
+
+        const item = document.createElement("li");
+        item.textContent = "Couldn't load leaderboard.";
+        leaderboardList.appendChild(item);
+    }
+}
+
+leaderboardButton.addEventListener("click", loadLeaderboard);
+
+// Load leaderboard when the page opens
+loadLeaderboard();
