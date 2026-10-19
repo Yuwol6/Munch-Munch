@@ -1,9 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36915.13 d17.14
+VisualStudioVersion = 17.14.36915.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecommendationApi", "RecommendationApi\RecommendationApi.csproj", "{634DAA13-3E13-4D54-960C-812BF1625F33}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		index.html = index.html
+		script.js = script.js
+		style.css = style.css
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HistoryApi", "HistoryApi\HistoryApi.csproj", "{80383708-9F31-4687-8018-4E07950421AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +24,10 @@ Global
 		{634DAA13-3E13-4D54-960C-812BF1625F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{634DAA13-3E13-4D54-960C-812BF1625F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{634DAA13-3E13-4D54-960C-812BF1625F33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80383708-9F31-4687-8018-4E07950421AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80383708-9F31-4687-8018-4E07950421AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80383708-9F31-4687-8018-4E07950421AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80383708-9F31-4687-8018-4E07950421AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
