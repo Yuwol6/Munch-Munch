@@ -2,6 +2,7 @@
 const button = document.getElementById("recommendButton");
 const result = document.getElementById("result");
 const cuisineSelect = document.getElementById("cuisineSelect");
+const priceSelect = document.getElementById("priceSelect");
 const historyButton = document.getElementById("historyButton");
 const historyList = document.getElementById("historyList");
 
@@ -27,15 +28,18 @@ if (!userId) {
 }
 
 button.addEventListener("click", async () => {
-    result.textContent = "Finding something delicious...";
     currentFood = null;
     voteButton.hidden = true;
 
     try {
         const cuisine = cuisineSelect.value;
-        const url = cuisine
-            ? `/api/recommend?cuisine=${encodeURIComponent(cuisine)}`
-            : "/api/recommend";
+        const price = priceSelect.value;
+        const params = new URLSearchParams();
+
+        if (cuisine) params.append("cuisine", cuisine);
+        if (price) params.append("price", price);
+
+        const url = `/api/recommend?${params.toString()}`;
 
         const response = await fetch(url);
 
@@ -73,7 +77,7 @@ button.addEventListener("click", async () => {
 
     } catch (error) {
         console.error(error);
-        if (result.textContent === "Finding something delicious...") {
+        if (!currentFood) {
             result.textContent = "Couldn't get a recommendation.";
         }
     }
