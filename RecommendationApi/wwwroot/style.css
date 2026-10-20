@@ -126,11 +126,11 @@ button {
 /* Voting */
 
 #voteButton {
-    background-color: #4CAF50;
+    background-color: #3E8E60;
 }
 
     #voteButton:hover {
-        background-color: #388E3C;
+        background-color: #2F704B;
     }
 
     #voteButton[hidden] {

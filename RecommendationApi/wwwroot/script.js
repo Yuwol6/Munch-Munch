@@ -119,6 +119,14 @@ historyButton.addEventListener("click", async () => {
 voteButton.addEventListener("click", async () => {
     if (!currentFood) return;
 
+    // Open Google Maps in a new tab
+    const query = encodeURIComponent(`${currentFood} restaurants near me`);
+    window.open(
+        `https://www.google.com/maps/search/?api=1&query=${query}`,
+        "_blank",
+        "noopener,noreferrer"
+    );
+
     voteButton.disabled = true;
 
     try {
@@ -168,7 +176,7 @@ async function loadLeaderboard() {
 
         if (leaderboard.length === 0) {
             const item = document.createElement("li");
-            item.textContent = "No votes today.";
+            item.textContent = "No votes yet today.";
             leaderboardList.appendChild(item);
             return;
         }
