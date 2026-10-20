@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{02
 	ProjectSection(SolutionItems) = preProject
 		Dockerfile = Dockerfile
 		RecommendationApi\wwwroot\index.html = RecommendationApi\wwwroot\index.html
+		nginx.conf = nginx.conf
 		RecommendationApi\wwwroot\script.js = RecommendationApi\wwwroot\script.js
 		RecommendationApi\wwwroot\style.css = RecommendationApi\wwwroot\style.css
 	EndProjectSection
