@@ -45,6 +45,12 @@ button.addEventListener("click", async () => {
 
         const data = await response.json();
         result.textContent = `How about ${data.food}?`;
+
+        const foodImage = document.getElementById("foodImage");
+        foodImage.src = `${data.imageUrl}?v=6`;
+        foodImage.alt = data.food;
+        foodImage.hidden = false;
+
         currentFood = data.food;
         voteButton.hidden = false;
         voteMessage.textContent = "";
@@ -96,7 +102,7 @@ historyButton.addEventListener("click", async () => {
 
         for (const entry of history) {
             const item = document.createElement("li");
-            const date = new Date(entry.recommendedAt).toLocaleString();
+            const date = new Date(entry.recommendedAt).toLocaleDateString("en-AU");
             item.textContent = `${entry.food} — ${date}`;
             historyList.appendChild(item);
         }

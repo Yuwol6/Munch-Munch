@@ -54,7 +54,7 @@ app.MapGet("/api/history/{userId}", async (string userId) =>
         FROM recommendation_history
         WHERE user_id = @userId
         ORDER BY recommended_at DESC, id DESC
-        LIMIT 50
+        LIMIT 10
         """;
 
     await using var command = new NpgsqlCommand(sql, connection);

@@ -5,44 +5,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MunchMunch</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
     <main>
-        <h1>😋 MunchMunch</h1>
-        <p>Can't decide what to eat?</p>
+        <!-- Website header -->
+        <header class="site-header">
+            <h1>😋 MunchMunch</h1>
+        </header>
 
+        <!-- Main recommendation feature -->
+        <section class="recommendation-card">
 
-        <select id="cuisineSelect">
-            <option value="">Any cuisine</option>
-            <option value="Italian">Italian</option>
-            <option value="Japanese">Japanese</option>
-            <option value="Korean">Korean</option>
-            <option value="American">American</option>
-        </select>
+            <h2>What should I eat today?</h2>
 
+            <div class="recommendation-controls">
+                <select id="cuisineSelect">
+                    <option value="">Any cuisine</option>
+                    <option value="American">American</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Chinese">Chinese</option>
+                </select>
 
-        <button id="recommendButton">
-            Recommend Me Something!
-        </button>
+                <button id="recommendButton">
+                    Recommend Me Something!
+                </button>
+            </div>
 
-        <h2 id="result">Your next meal awaits...</h2>
+            <div class="recommendation-result">
+                <img id="foodImage" alt="Recommended food" hidden>
+                <h2 id="result">Hungry?</h2>
+            </div>
 
-        <button id="voteButton" hidden>I'm gonna eat this!</button>
-        <p id="voteMessage"></p>
+            <button id="voteButton" hidden>
+                I'm gonna eat this!
+            </button>
 
-        <section>
-            <h2>Recommendation History</h2>
-            <button id="historyButton">View History</button>
-            <ul id="historyList"></ul>
+            <p id="voteMessage"></p>
         </section>
 
-        <section>
-            <h2>Today's Leaderboard 🏆</h2>
-            <button id="leaderboardButton">Refresh Leaderboard</button>
-            <ol id="leaderboardList"></ol>
-        </section>
+        <!-- Secondary features -->
+        <div class="secondary-grid">
+            <section class="feature-card">
+                <div class="feature-header">
+                    <h2>Recommendation History</h2>
+                    <p>Your previous meal recommendations</p>
+                </div>
 
+                <button id="historyButton">
+                    View History
+                </button>
+
+                <ul id="historyList"></ul>
+            </section>
+
+            <section class="feature-card">
+                <div class="feature-header">
+                    <h2>Today's Leaderboard</h2>
+                    <p>See what everyone is eating today</p>
+                </div>
+
+                <button id="leaderboardButton">
+                    Refresh Leaderboard
+                </button>
+
+                <ol id="leaderboardList"></ol>
+            </section>
+        </div>
     </main>
 
     <script src="script.js"></script>
