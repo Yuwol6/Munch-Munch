@@ -15,15 +15,11 @@ services:
     build:
       context: .
       dockerfile: RecommendationApi/Dockerfile
-    ports:
-      - "8081:8080"
 
   history-api:
     build:
       context: .
       dockerfile: HistoryApi/Dockerfile
-    ports:
-      - "8082:8080"
     environment:
       ConnectionStrings__Database: "Host=postgres;Port=5432;Database=munchmunch;Username=munchmunch;Password=devpassword"
     depends_on:
@@ -34,8 +30,6 @@ services:
     build:
       context: .
       dockerfile: VotingApi/Dockerfile
-    ports:
-      - "8083:8080"
     environment:
       ConnectionStrings__Database: "Host=postgres;Port=5432;Database=munchmunch;Username=munchmunch;Password=devpassword"
     depends_on:

@@ -11,13 +11,11 @@ const voteMessage = document.getElementById("voteMessage");
 const leaderboardButton = document.getElementById("leaderboardButton");
 const leaderboardList = document.getElementById("leaderboardList");
 
-// Replace with your VotingApi's actual HTTPS port
-const VOTING_API = "http://localhost:8082";
+const VOTING_API = "";
 
 let currentFood = null;
 
-// Replace this with HistoryApi's actual HTTPS port
-const HISTORY_API = "http://localhost:8081";
+const HISTORY_API = "";
 
 // Give each browser a persistent anonymous ID
 let userId = localStorage.getItem("munchmunchUserId");

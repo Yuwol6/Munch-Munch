@@ -7,11 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecommendationApi", "Recomm
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 	ProjectSection(SolutionItems) = preProject
-		Dockerfile = Dockerfile
-		RecommendationApi\wwwroot\index.html = RecommendationApi\wwwroot\index.html
-		nginx.conf = nginx.conf
-		RecommendationApi\wwwroot\script.js = RecommendationApi\wwwroot\script.js
-		RecommendationApi\wwwroot\style.css = RecommendationApi\wwwroot\style.css
+		Frontend\Dockerfile = Frontend\Dockerfile
+		Frontend\index.html = Frontend\index.html
+		Frontend\nginx.conf = Frontend\nginx.conf
+		Frontend\script.js = Frontend\script.js
+		Frontend\style.css = Frontend\style.css
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HistoryApi", "HistoryApi\HistoryApi.csproj", "{80383708-9F31-4687-8018-4E07950421AC}"
