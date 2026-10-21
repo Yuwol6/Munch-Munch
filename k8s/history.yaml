@@ -1,0 +1,47 @@
+# Run two replicas of the History API
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: history-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: history-api
+  template:
+    metadata:
+      labels:
+        app: history-api
+    spec:
+      containers:
+        - name: history-api
+          image: yuwol6/munchmunch-history:v2
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ConnectionStrings__Database
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: CONNECTION_STRING
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+
+---
+# Expose the History API internally
+apiVersion: v1
+kind: Service
+metadata:
+  name: history-api
+spec:
+  type: ClusterIP
+  selector:
+    app: history-api
+  ports:
+    - port: 8080
+      targetPort: 8080

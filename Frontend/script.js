@@ -21,7 +21,11 @@ const HISTORY_API = "";
 let userId = localStorage.getItem("munchmunchUserId");
 
 if (!userId) {
-    userId = crypto.randomUUID();
+    userId = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, c => {
+        const r = Math.floor(Math.random() * 16);
+        return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
+    })
+
     localStorage.setItem("munchmunchUserId", userId);
 }
 
