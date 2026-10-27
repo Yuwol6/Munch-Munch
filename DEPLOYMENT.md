@@ -16,7 +16,8 @@
     - `mkdir -p ~/munchmunch-k8s`
     - `cd ~/munchmunch-k8s`
 
-- create K8s Secret named postgres-secret
+- create K8s Secret named postgres-secret ==note: for actual deployment for public service, change
+the DB password from compose.yaml and the Program.cs files of the APIs==
 ```
 kubectl create secret generic postgres-secret \
   --from-literal=POSTGRES_USER=munchmunch \

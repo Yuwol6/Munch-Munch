@@ -1,24 +1,43 @@
 # MunchMunch
-- AI Statement below
-- Deployment instructions in DEPLOYMENT.md
-- Kubernetes demonstration commands in KUBERNETES_COMMANDS.md
 
-## AI Statement
-- AI was used all throughout this assessment. AI used was GPT-6.
-- AI was used to brush up writing within the Proposal; given dot points or a rough paragraph I
-wrote, I asked GPT to, "brush up the grammar, punctuation and vocabulary on these paragraphs".
-- AI was used to check within the Google Cloud Pricing Calculator what services I had used in my
-implementation. I searched the services in the calculator and applied the appropriate options to 
-get my cost estimate.
-- AI was used throughout the code to develop most initial versions of the codebase, which I then 
-read, understood and edited some parts that I felt necessary. For example, within RecommendationApi
-project's Program.cs, after AI created the array representing food types, it just had the name
-property. I then developed the type to have the properties Cuisine, Price and ImageUrl, and changed
-the JavaScript code accordingly as well. I then let the AI fix some bugs within the JS code, etc.
-- AI was used especially to write all of the Dockerfile and YAML file types, as it knew the syntax
-better than me. When I was unsure about a property or value within the files I copied the segment
-and asked what it did/is for.
-- I also used AI to help guide me during development and deployment; for example, after creating
-the GKE cluster, I asked GPT, "okay, I created the GKE cluster now, should I upload my YAML files
-for the creation of the different K8s cluster components? Or do I have sth else to do still?" I used
-this process of asking and checking to consciously help guide me through the project.
+MunchMunch is a web application hosted on cloud infrastructure, designed to help users 
+decide what to eat through randomised food recommendations.
+
+The motivation behind this project stems from my personal experience of frequently 
+struggling to decide what to eat. Despite feeling hungry, I often find myself without any 
+particular cravings or preferences, making the process of choosing a meal unnecessarily 
+difficult. According to Google Trends data analysed through Glimpse, the keywords “lunch 
+ideas” and “dinner ideas” generated approximately 260,000 searches in Australia over the 
+past month. Recognising that many others experience similar difficulties 
+when deciding what to eat and identifying a lack of compelling existing web applications 
+solving this issue, I saw significant potential in developing MunchMunch.
+
+## Web Preview
+==will be inserted soon==
+
+## Tech Stack
+
+**Backend**
+
+- C# / .NET 8
+- ASP.NET Core Web API (Minimal APIs)
+- PostgreSQL
+
+**Frontend**
+
+- HTML / CSS / JavaScript
+- Asynchronous API requests (Fetch API)
+
+**Cloud & Infrastructure**
+
+- Docker / Docker Compose
+- Nginx (web serving and reverse proxy)
+- Kubernetes
+- Google Kubernetes Engine
+
+## Architecture & Data Flow
+![MunchMunch Preview](Frontend/images/architecture-final.png)
+
+## Deployment & Kubernetes Testing
+- Deployment instructions to GKE are in DEPLOYMENT.md
+- Kubernetes demonstration commands are in KUBERNETES_DEMO.md
