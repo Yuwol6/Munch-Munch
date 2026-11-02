@@ -16,8 +16,8 @@
     - `mkdir -p ~/munchmunch-k8s`
     - `cd ~/munchmunch-k8s`
 
-- create K8s Secret named postgres-secret ==note: for actual deployment for public service, change
-the DB password from compose.yaml and the Program.cs files of the APIs==
+- create K8s Secret named postgres-secret
+(note: for actual deployment for public service, change the DB password from compose.yaml and the Program.cs files of the APIs)
 ```
 kubectl create secret generic postgres-secret \
   --from-literal=POSTGRES_USER=munchmunch \
@@ -25,6 +25,7 @@ kubectl create secret generic postgres-secret \
   --from-literal=POSTGRES_DB=munchmunch \
   --from-literal='CONNECTION_STRING=Host=postgres;Port=5432;Database=munchmunch;Username=munchmunch;Password=devpassword'
 ```
+(note: can check secrets via `kubectl get secrets`)
 
 - upload yaml files using Google Cloud Shell GUI
 - run the YAML files by

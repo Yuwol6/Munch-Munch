@@ -13,7 +13,7 @@ when deciding what to eat and identifying a lack of compelling existing web appl
 solving this issue, I saw significant potential in developing MunchMunch.
 
 ## Web Preview
-==will be inserted soon==
+![MunchMunch Web Preview](Frontend/images/web-preview.png)
 
 ## Tech Stack
 
@@ -36,7 +36,7 @@ solving this issue, I saw significant potential in developing MunchMunch.
 - Google Kubernetes Engine
 
 ## Architecture & Data Flow
-![MunchMunch Preview](Frontend/images/architecture-final.png)
+![MunchMunch Architecture](Frontend/images/architecture-final.png)
 
 ## Deployment & Kubernetes Testing
 - Deployment instructions to GKE are in DEPLOYMENT.md
